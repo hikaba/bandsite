@@ -1,0 +1,15 @@
+@use "./fonts" as *;
+
+$font-stack: "NunitoSans", sans-serif;
+
+$primary-font-color-dark: #323232;
+$secondary-font-color: #afafaf;
+$primary-font-color-light: #ffffff;
+
+$secondary-color-dark: #000000;
+$divider-line-color: #e1e1e1;
+$secondary-background-color: #fafafa;
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+$mobile-breakpoint: 767px;

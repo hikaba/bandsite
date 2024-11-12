@@ -1,0 +1,189 @@
+@use "./variables" as *;
+@use "./fonts" as *;
+@use "./mixins" as *;
+
+* {
+  box-sizing: border-box;
+}
+body {
+  color: $primary-font-color-dark;
+  font-family: $font-stack;
+  font-weight: 400;
+  margin: 0;
+}
+
+.header {
+  text-align: center;
+  background-color: $primary-font-color-dark;
+  padding-top: 1rem;
+  @include flex-column;
+  @include tablet {
+    @include flex-row;
+    padding: 0;
+  }
+  &__logo-container {
+    padding-top: 1rem;
+    @include tablet {
+      padding: 1rem 1rem 1rem 2.25rem;
+      align-self: center;
+    }
+    @include desktop {
+      padding: 1rem 2rem 1rem 5rem;
+    }
+  }
+  &__logo-link {
+    text-decoration: none;
+  }
+  &__logo {
+    max-width: 7.5rem;
+    max-height: 1.25rem;
+    align-self: center;
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__item {
+    padding: 1rem;
+    width: 50%;
+    @include tablet {
+      padding: 2rem 0;
+      margin-left: 4rem;
+    }
+    @include desktop {
+      padding: 2rem 0;
+      margin-left: 2rem;
+    }
+  }
+  &__item--modifier {
+    border-bottom: 0.188rem solid $primary-font-color-light;
+  }
+  &__link {
+    text-align: center;
+    font-weight: 100;
+    color: $divider-line-color;
+    text-decoration: none;
+    text-align: center;
+  }
+  &__item:hover {
+    color: $primary-font-color-light;
+    border-bottom: 0.188rem solid $primary-font-color-light;
+  }
+  &__link--modifier {
+    font-weight: bold;
+    color: $primary-font-color-light;
+  }
+}
+
+///// FOOTER /////
+.footer {
+  color: $primary-font-color-light;
+  background-color: $primary-font-color-dark;
+  position: relative;
+  @include flex-column;
+  @include tablet {
+    padding: 0 2.25rem 2.25rem;
+  }
+  @include desktop {
+    padding: 0 5rem 2.25rem 5rem;
+  }
+  &__top-row {
+    @include tablet {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__heading {
+    margin: 1.5rem 1rem 1rem;
+    font-size: 1.5rem;
+    @include tablet {
+      margin: 3rem 5rem 2.25rem 0;
+      font-size: 2.25rem;
+    }
+  }
+  &__social-card {
+    @include flex-column;
+  }
+  &__social-icons {
+    margin: 0 1rem 1rem;
+    width: 40%;
+    display: flex;
+    gap: 2rem;
+    @include tablet {
+      width: auto;
+      align-items: center;
+      margin: 3rem 2.25rem 2.25rem;
+      gap: 2rem;
+    }
+  }
+  &__social-icon {
+    height: fit-content;
+  }
+  &__social-link {
+    text-decoration: none;
+  }
+  &__middle-row {
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+    @include desktop {
+      justify-content: flex-start;
+      gap: 8rem;
+    }
+  }
+  &-card {
+    @include flex-column;
+    align-items: flex-start;
+  }
+  &-card__subheading {
+    margin: 0rem 1rem 0.5rem 1rem;
+    font-size: 0.813rem;
+    line-height: 1.375rem;
+    font-weight: 700;
+    @include tablet {
+      margin: 0 0 1rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+  &-card__details {
+    margin: 0.5rem 1rem;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    @include tablet {
+      margin: 0 0 1rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+  &-card__logo {
+    margin: 1.5rem 1rem 1rem;
+    @include tablet {
+      margin: 2.25rem 2.25rem 2.25rem 0;
+    }
+  }
+  &-card__logo--top {
+    @include tablet {
+      position: absolute;
+      top: 2rem;
+      right: 1rem;
+    }
+    @include desktop {
+      right: 4rem;
+    }
+  }
+  &-card__copyright {
+    margin: 0rem 1rem 1rem;
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    @include tablet {
+      margin: 3rem 2.25rem 2.25rem 0;
+      font-size: 0.875rem;
+    }
+  }
+}
