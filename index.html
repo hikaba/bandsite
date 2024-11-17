@@ -143,7 +143,47 @@
           />
         </div>
       </section>
+      <!-- COMMENTS -->
+      <section class="comments">
+        <h1 class="comments__header">Join the Conversation</h1>
+        <!-- comment form -->
+        <div class="comments__container">
+          <div class="comments__image">
+            <img
+              src="./assets/images/Mohan-muruge.jpg"
+              alt="user-image"
+              class="comments__user-image"
+            />
+          </div>
+          <div class="comments-form__container">
+            <form id="comments-form" class="comments-form">
+              <div class="comments-form__group">
+                <label for="user-name" class="comments-form__label">NAME</label>
+                <input
+                  type="text"
+                  id="user-name"
+                  name="user-name"
+                  class="comments-form__input"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div class="comments-form__group">
+                <label for="user-comment" class="comments-form__label">COMMENT</label>
+                <input
+                  type="text"
+                  id="user-comment"
+                  name="user-comment"
+                  class="comments-form__input"
+                  placeholder="Add a new comment"
+                />
+              </div>
+              <input type="submit" name="submit" id="submit" class="comments-form__submit" value="COMMENT" />
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
+
     <!-- footer -->
     <footer class="footer">
       <div class="footer__top-row">
