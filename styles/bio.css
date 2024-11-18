@@ -457,10 +457,9 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
-  padding: 0 1rem;
 }
 .comments__header {
-  margin: 1.5rem 0 1rem;
+  margin: 1.5rem 1rem 1rem;
   size: 1.5rem;
 }
 @media screen and (min-width: 768px) {
@@ -475,6 +474,23 @@ body {
     margin: 3rem 2.25rem 2.25rem 5rem;
     font-size: 2.25rem;
     line-height: 2.75rem;
+  }
+}
+.comments__container {
+  padding: 0 1rem;
+}
+@media screen and (min-width: 768px) {
+  .comments__container {
+    padding: 0 6rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comments__container {
+    padding: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
   }
 }
 
@@ -499,6 +515,11 @@ body {
   font-weight: 700;
   color: #afafaf;
 }
+@media screen and (min-width: 768px) {
+  .comments__form-label {
+    font-size: 0.75rem;
+  }
+}
 .comments__form-input-container {
   display: flex;
   gap: 1rem;
@@ -519,13 +540,19 @@ body {
   font-family: "NunitoSans", sans-serif;
   font-size: 0.625rem;
 }
+@media screen and (min-width: 768px) {
+  .comments__form-input {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+}
 .comments__form-input::-moz-placeholder {
   font-family: "NunitoSans", sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 .comments__form-input::placeholder {
   font-family: "NunitoSans", sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 .comments__form-input:focus {
   outline: none;
@@ -544,8 +571,13 @@ body {
   margin-left: 3.25rem;
   cursor: pointer;
 }
+@media screen and (min-width: 768px) {
+  .comments__form-submit {
+    font-size: 0.75rem;
+  }
+}
 
-.divider {
+.comments-display__divider {
   width: 100%;
   border-top: 1px solid #bbb;
   border-radius: 5px;
@@ -557,9 +589,9 @@ body {
   flex-direction: column;
 }
 
-.comments-display__container {
+.comments-display_container {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
 }
 
 .comments-display__user-image {
@@ -569,12 +601,18 @@ body {
   border-radius: 50%;
 }
 
+.comments-display__comment {
+  flex-grow: 1;
+}
+
 .comments-display__wrapper {
   display: flex;
   justify-content: space-between;
 }
 
 .comments-display__content {
+  display: flex;
+  gap: 1rem;
   font-size: 0.813rem;
   line-height: 1.125rem;
   margin: 0 0 0.5rem;
@@ -584,4 +622,10 @@ body {
 }
 .comments-display__content-light {
   color: #afafaf;
+}
+@media screen and (min-width: 768px) {
+  .comments-display__content {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
 }/*# sourceMappingURL=bio.css.map */
