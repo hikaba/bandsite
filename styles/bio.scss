@@ -5,49 +5,6 @@
 ////// HERO //////
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
-  background-size: cover;
-  background-position: center;
-  width: auto;
-  position: relative;
-  height: 16rem;
-  @include tablet {
-    height: 30rem;
-  }
-  @include desktop {
-    height: 40rem;
-  }
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: $primary-font-color-dark;
-    opacity: 50%;
-  }
-  &__content {
-    position: relative;
-    z-index: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding-left: 1rem;
-    @include tablet {
-      padding-left: 2.25rem;
-    }
-    @include desktop {
-      padding-left: 5rem;
-    }
-  }
-  &__title {
-    margin: 0;
-    color: $primary-font-color-light;
-    line-height: 32px;
-    font-size: 1.5rem;
-    @include tablet {
-      font-size: 4.25rem;
-    }
-  }
 }
 
 ///// ABOUT /////
@@ -56,6 +13,7 @@
   &__header {
     margin: 1.5rem 1rem 1rem;
     font-size: 1.5rem;
+    line-height: 2rem;
     @include tablet {
       margin: 3rem 2.25rem 2.25rem;
       font-size: 2.25rem;
@@ -63,8 +21,6 @@
     }
     @include desktop {
       margin: 3rem 2.25rem 2.25rem 5rem;
-      font-size: 2.25rem;
-      line-height: 2.75rem;
     }
   }
   &__content-container {
@@ -266,7 +222,6 @@
     &:focus{
       outline: none;
       border: 1px solid $primary-font-color-dark;
-  
     }
     &--modifier{
       margin-left: 3.25rem;

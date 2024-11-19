@@ -28,7 +28,7 @@
             >
           </li>
           <li class="header__item">
-            <a href="" class="header__link">Shows</a>
+            <a href="./pages/shows.html" class="header__link">Shows</a>
           </li>
         </ul>
       </nav>
@@ -164,6 +164,7 @@
                   name="userName"
                   class="comments__form-input"
                   placeholder="Enter your name"
+                  required
                   />
                 </div>
               </div>
@@ -174,18 +175,17 @@
                 id="userComment"                   
                 class="comments__form-input comments__form-input--modifier"
                 placeholder="Add a new comment"
+                required
                 rows="10"></textarea>
               </div>
               <input type="submit" name="submit" id="submit" class="comments__form-submit" value="COMMENT" />
             </form>
           </div>
-
           <hr class="comments-display__divider">
-
-          <div id="comments-display" class="comments-display"></div>
-
-        </div>
-          
+          <div id="comments-display" class="comments-display">
+            <!-- comments go here -->
+          </div>
+        </div>  
       </section>
     </main>
 

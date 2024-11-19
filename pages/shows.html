@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../styles/shows.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../scripts/build-shows-page.js" defer></script>
+    <title>BandSite</title>
+</head>
+<body>
+    <!-- header -->
+    <header class="header">
+        <div class="header__logo-container">
+          <a href="../index.html" class="header__logo-link">
+            <img
+              src="../assets/logo/Logo-bandsite.svg"
+              alt="bandsite logo"
+              class="header__logo"
+            />
+          </a>
+        </div>
+        <!-- nav bar -->
+        <nav class="header__nav">
+          <ul class="header__list">
+            <li class="header__item">
+              <a href="../index.html" class="header__link"
+                >Biography</a
+              >
+            </li>
+            <li class="header__item header__item--modifier">
+              <a href="./pages/shows.html" class="header__link header__link--modifier">Shows</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <main class="main">
+        <!-- hero section -->
+        <section class="hero">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <div class="hero__title-wrapper">
+                  <h2 class="hero__subtitle">Beautiful Beasts Album</h2>
+                  <h1 class="hero__title">Stripes of Yellow x For The Strings</h1>
+                </div>
+                <!-- <h2 class="hero__subtitle">Beautiful Beasts Album</h2>
+                <h1 class="hero__title">Stripes of Yellow x For The Strings</h1> -->
+                <iframe
+                    class="hero__iframe"
+                    scrolling="no"
+                    frameborder="no"
+                    allow="autoplay"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/509639583&color=%234a3f79&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                    ></iframe>
+            </div>
+        </section>
+
+        <!-- shows section -->
+         <section class="shows">
+            <h1 class="shows__header">Shows</h1>
+            <ul class="shows__list" id="shows-list">
+              <li class="shows__titles">
+                <p class="shows__title shows__title--bold">DATE</p>
+                <p class="shows__title">VENUE</p>
+                <p class="shows__title">LOCATION</p>
+                <button class="shows__button shows__button--disappear">BUY TICKETS</button>
+              </li>
+                 <!-- <li class="shows__item">
+                    <p class="shows__heading shows__heading--bold">DATE</p>
+                    <p class="shows__detail shows__detail--bold">
+                        Mon Sept 09 2024
+                    </p>
+                    <p class="shows__heading">VENUE</p>
+                    <p class="shows__detail">
+                        Ronald Lane
+                    </p>
+                    <p class="shows__heading">LOCATION</p>
+                    <p class="shows__detail">
+                        San Francisco, CA
+                    </p>
+                    <button class="shows__button">BUY TICKETS</button>
+                 </li> -->
+
+              </ul>
+         </section>
+
+      </main>
+      <!-- footer -->
+    <footer class="footer">
+        <div class="footer__top-row">
+          <h1 class="footer__heading">Get in Touch</h1>
+          <article class="footer__social-card">
+            <p class="footer__social-icons">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="footer__social-link"
+              >
+                <img
+                  src="../assets/icons/SVG/Icon-instagram.svg"
+                  alt="instagram"
+                  class="footer__social-icon"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="footer__social-link"
+              >
+                <img
+                  src="../assets/icons/SVG/Icon-facebook.svg"
+                  alt="facebook"
+                  class="footer__social-icon"
+                />
+              </a>
+              <a
+                href="https://www.twitter.com/"
+                target="_blank"
+                class="footer__social-link"
+              >
+                <img
+                  src="../assets/icons/SVG/Icon-twitter.svg"
+                  alt="twitter"
+                  class="footer__social-icon"
+                />
+              </a>
+            </p>
+          </article>
+        </div>
+  
+        <div class="footer__middle-row">
+          <article class="footer-card">
+            <h4 class="footer-card__subheading">The Bees Knees Management</h4>
+            <p class="footer-card__details">
+              503 Broadway Penthouse<br />New York, NY 10012, USA
+            </p>
+            <p class="footer-card__details">info@thebeesknees.com</p>
+          </article>
+          <article class="footer-card">
+            <h4 class="footer-card__subheading">Limitless Artist Group</h4>
+            <p class="footer-card__details">
+              Booking Agent for<br />US / South America / Japan
+            </p>
+            <p class="footer-card__details">bookings@limitlessag.com</p>
+          </article>
+          <article class="footer-card">
+            <h4 class="footer-card__subheading">ARCH Entertainment</h4>
+            <p class="footer-card__details">
+              Booking Agent for<br />UK / EU / AU
+            </p>
+            <p class="footer-card__details">bookings@archentertainment.com</p>
+          </article>
+        </div>
+  
+        <article class="footer-card">
+          <img
+            src="../assets/logo/Logo-bandsite.svg"
+            alt="bandsite logo"
+            class="footer-card__logo footer-card__logo--top"
+          />
+          <p class="footer-card__copyright">
+            Copyright The Bees Knees © 2023 All Rights Reserved
+          </p>
+        </article>
+      </footer>
+    </body>
+</html>
