@@ -1,9 +1,9 @@
 //array with some comments
 let userComments = [
     {
-        name: 'Victor Pinto',
-        date: "11/02/2023",
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.'
+        name: 'Isaac Tadesse',
+        date: '10/20/2023',
+        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
     },
     {
         name: 'Christina Cabrera',
@@ -11,16 +11,15 @@ let userComments = [
         comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.' 
     },
     {
-        name: 'Isaac Tadesse',
-        date: '10/20/2023',
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough."
-    }
+        name: 'Victor Pinto',
+        date: "11/02/2023",
+        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.'
+    },
 ];
 
 
 //gettting the form and display sections
 const commentsForm = document.getElementById("comments__form");
-const commentsDisplay = document.getElementById("comments-display");
 commentsForm.addEventListener('submit', handleFormSubmit);
 
 
@@ -41,45 +40,53 @@ function handleFormSubmit(event){
         date: `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`,
         comment: comment
     }
-    // userComments.push(userComment);
-    createCommentCard(userComment)
+    userComments.push(userComment);
+    displayComments();
 }
+const commentsListElement = document.getElementById("comments-list");
 
-function createCommentCard(comment){
-    console.log(comment);
-    const commentsDisplayContainer = document.createElement('div');
-    commentsDisplayContainer.className = 'comments-display__container';
-    //adding the html with the user information into the comments-display container
-    commentsDisplayContainer.innerHTML = `
-        <div class="comments-display__content">
-            <div class="comments-display__icon-wrapper">
-                <div class="comments-display__user-image"></div>
-            </div>
-      
-            <div class="comments-display__comment">
-                <div class="comments-display__wrapper">
-                    <p class="comments-display__content comments-display__content-bold">
-                        ${comment.name}
-                    </p>
-                    <p class="comments-display__content comments-display__content-light">
-                        ${comment.date}
-                    </p>
-                </div>
-                
-                <p class="comments-display__content">
-                    ${comment.comment}
-                </p>
-            </div>
-        </div>
-        <hr class="comments-display__divider">
-    `;
+function displayComments (){
+    commentsListElement.innerText = "";
 
-    //adding the comment to existing commentsDisplay container
-    //parent element, inserting new element before the first child, like a stack
-    commentsDisplay.insertBefore(commentsDisplayContainer, commentsDisplay.firstChild);
+    for(let i = userComments.length -1; i >= 0; i--) {
+        let comment = userComments[i];
+        
+        // console.log(comment);
+         let itemElement = document.createElement("li");
+         itemElement.classList.add("comments__list-item");
+         commentsListElement.appendChild(itemElement);
+
+         let imageIconElement = document.createElement("div");
+         imageIconElement.classList.add("comments-display__image-icon")
+         itemElement.appendChild(imageIconElement);
+
+         let userInfoElement = document.createElement("div");
+         userInfoElement.classList.add("comments-display__user");
+         itemElement.appendChild(userInfoElement);
+
+         let wrapperElement = document.createElement("div");
+         wrapperElement.classList.add("comments-display__user-wrapper")
+         userInfoElement.appendChild(wrapperElement);
+
+         let userNameElement = document.createElement("p");
+         userNameElement.classList.add(
+            "comments-display__user-info",
+            "comments-display__user-info--bold"
+         );
+         userNameElement.innerText = comment.name;
+         wrapperElement.appendChild(userNameElement);
+
+         let dateElement =document.createElement("p");
+         dateElement.classList.add("comments-display__user-info");
+         dateElement.innerText = comment.date;
+         wrapperElement.appendChild(dateElement);
+
+         let commentElement = document.createElement("p");
+         commentElement.classList.add("comments-display__user-info");
+         commentElement.innerText = comment.comment;
+         userInfoElement.appendChild(commentElement);
+    }
     commentsForm.reset();
 }
 //creating pre-existing cards from array
-for(let i=0; i< userComments.length; i++){
-    createCommentCard(userComments[i]);
-}
+displayComments();
