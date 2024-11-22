@@ -1,4 +1,5 @@
-
+import { BandSiteApi } from "./band-site-api.js";
+const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
 
 // {/* <li class="shows__item">
 //     <p class="shows__heading shows__heading--bold">DATE</p>
@@ -14,43 +15,46 @@
 //         San Francisco, CA
 //     </p>
 //     <button class="shows__button">BUY TICKETS</button>
-// </li> */}
+// </li> */
 
 // array of shows
-const showsArray = [
-    {
-        date: "Mon Sept 09 2024",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA",
-    },
-    {
-        date: "Tue Sept 17 2024",
-        venue: "Pier 3 East",
-        location: "San Francisco, CA",
-    },
-    {
-        date: "Sat Oct 12 2024",
-        venue: "View Lounge",
-        location: "San Francisco, CA",
-    },
-    {
-        date: "Sat Nov 16 2024",
-        venue: "Hyatt Agency",
-        location: "San Francisco, CA",
-    },
-    {
-        date: "Fri Nov 29 2024",
-        venue: "Moscow Center",
-        location: "San Francisco, CA",
-    },
-    {
-        date: "Wed Dec 18 2024",
-        venue: "Press Club",
-        location: "San Francisco, CA",
-    }
-  ];
+// const showsArray = [
+//     {
+//         date: "Mon Sept 09 2024",
+//         venue: "Ronald Lane",
+//         location: "San Francisco, CA",
+//     },
+//     {
+//         date: "Tue Sept 17 2024",
+//         venue: "Pier 3 East",
+//         location: "San Francisco, CA",
+//     },
+//     {
+//         date: "Sat Oct 12 2024",
+//         venue: "View Lounge",
+//         location: "San Francisco, CA",
+//     },
+//     {
+//         date: "Sat Nov 16 2024",
+//         venue: "Hyatt Agency",
+//         location: "San Francisco, CA",
+//     },
+//     {
+//         date: "Fri Nov 29 2024",
+//         venue: "Moscow Center",
+//         location: "San Francisco, CA",
+//     },
+//     {
+//         date: "Wed Dec 18 2024",
+//         venue: "Press Club",
+//         location: "San Francisco, CA",
+//     }
+//   ];
 
   let showsListElement = document.getElementById('shows-list');
+  const shows = new BandSiteApi(apiKey);
+  const showsArray = await shows.getShows();
+  console.log(showsArray);
 
   function displayShows (){
     for (let i = 0; i < showsArray.length; i++) {

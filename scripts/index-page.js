@@ -1,7 +1,6 @@
 import { BandSiteApi } from "./band-site-api.js";
 
 //creating api key and base url variables
-const baseURL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
 const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
 
 //creating instacne of bandsiteapi class
@@ -13,27 +12,23 @@ const commentsListElement = document.getElementById("comments-list");
 
 async function handleFormSubmit(event){
     event.preventDefault();
-    console.log("form submitted");
     const date = new Date();
     const newUserComment = {
         name: event.target.userName.value,
         comment: event.target.userComment.value
     }
     const response = await comments.postComment(newUserComment);
-    console.log(response);
     getCommentDataAndAppendToList();
 }
 
 async function getCommentDataAndAppendToList(){
     commentsListElement.innerText ="";
-    const response = await comments.getComments();
-
-    // console.log(userComments);
-    const commentsReverse = response.reverse();
+    const userComments = await comments.getComments();
+    console.log(userComments)
     
     //loop through comments array
-    for(let i = 0; i < commentsReverse.length; i++) {
-        let comment = commentsReverse[i];
+    for(let i = 0; i < userComments.length; i++) {
+        let comment = userComments[i];
         const timestamp = new Date(comment.timestamp);
         const date = `${timestamp.getMonth()}/${timestamp.getDay()}/${timestamp.getFullYear()}`;
     

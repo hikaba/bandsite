@@ -6,11 +6,16 @@ export class BandSiteApi {
 
     async getComments(){
         const response = await axios.get(`${this.baseURL}comments?api_key=${this.apiKey}`);
-        return response.data;
+        const userComments = response.data;
+        return userComments.reverse();
     }
 
     async postComment(newComment){
         const response = await axios.post(`${this.baseURL}comments?api_key=${this.apiKey}`, newComment);
+        return response.data;
+    }
+    async getShows(){
+        const response = await axios.get(`${this.baseURL}showdates?api_key=${this.apikey}`);
         return response.data;
     }
 }
