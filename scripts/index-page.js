@@ -17,39 +17,43 @@ let userComments = [
     },
 ];
 
+//creating api key and base url variables
+const baseURL = "https://unit-2-project-api-25c1595833b2.herokuapp.com/";
+const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
+
 
 //gettting the form and display sections
 const commentsForm = document.getElementById("comments__form");
 commentsForm.addEventListener('submit', handleFormSubmit);
-
-
-function handleFormSubmit(event){
-    event.preventDefault();
-    //getting input values
-    const name = event.target.userName.value;
-    const comment = event.target.userComment.value;
-    const date= new Date();
-    //validation stuff
-    if(name === '' || comment === ''){
-        alert("Please complete form before submitting")
-        return;
-    }
-    // creating object for usercomment
-    const userComment = {
-        name: name,
-        date: `${date.getMonth()}/${date.getDay()}/${date.getFullYear()}`,
-        comment: comment
-    }
-    userComments.push(userComment);
-    displayComments();
-}
 const commentsListElement = document.getElementById("comments-list");
 
-function displayComments (){
-    commentsListElement.innerText = "";
+async function handleFormSubmit(event){
+    event.preventDefault();
+    console.log("form submitted");
+    const date = new Date();
+    const newUserComment = {
+        name: event.target.userName.value,
+        comment: event.target.userComment.value
+    }
+    const response = await axios.post(`${baseURL}comments?api_key=${apiKey}`,newUserComment);
+    console.log(response);
+    getCommentDataAndAppendToList();
+}
 
-    for(let i = userComments.length -1; i >= 0; i--) {
-        let comment = userComments[i];
+async function getCommentDataAndAppendToList(){
+    commentsListElement.innerText ="";
+    const response = await axios.get(`${baseURL}comments?api_key=${apiKey}`);
+    userComments = response.data;
+    console.log(userComments);
+    const commentsReverse = userComments.reverse();
+    
+    //loop through comments array
+    for(let i = 0; i < commentsReverse.length; i++) {
+        let comment = commentsReverse[i];
+        const timestamp = new Date(comment.timestamp);
+        const date = `${timestamp.getMonth()}/${timestamp.getDay()}/${timestamp.getFullYear()}`;
+        
+        
         
         // console.log(comment);
          let itemElement = document.createElement("li");
@@ -78,7 +82,7 @@ function displayComments (){
 
          let dateElement =document.createElement("p");
          dateElement.classList.add("comments-display__user-info");
-         dateElement.innerText = comment.date;
+         dateElement.innerText = date;
          wrapperElement.appendChild(dateElement);
 
          let commentElement = document.createElement("p");
@@ -88,5 +92,5 @@ function displayComments (){
     }
     commentsForm.reset();
 }
-//creating pre-existing cards from array
-displayComments();
+
+getCommentDataAndAppendToList();
