@@ -440,6 +440,7 @@ body {
 @media screen and (min-width: 768px) {
   .shows__detail {
     font-size: 0.875rem;
+    line-height: 1.375rem;
     flex: 1;
     align-content: center;
   }

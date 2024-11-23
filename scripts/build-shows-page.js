@@ -60,10 +60,8 @@ const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
     for (let i = 0; i < showsArray.length; i++) {
         let show = showsArray[i];
         const timestamp = new Date(show.date);
-        const month = String((timestamp.getMonth()+1)).padStart('2', 0);
-        const day = String(timestamp.getDate()).padStart('2',0);
-        const year = String(timestamp.getFullYear());
-        const date = `${month}/${day}/${year}`;
+        
+        const date = timestamp.toDateString();
         
         
     
