@@ -30,7 +30,10 @@ async function getCommentDataAndAppendToList(){
     for(let i = 0; i < userComments.length; i++) {
         let comment = userComments[i];
         const timestamp = new Date(comment.timestamp);
-        const date = `${timestamp.getMonth()}/${timestamp.getDay()}/${timestamp.getFullYear()}`;
+        const month = String((timestamp.getMonth()+1)).padStart('2', 0);
+        const day = String(timestamp.getDate()).padStart('2',0);
+        const year = String(timestamp.getFullYear());
+        const date = `${month}/${day}/${year}`;
     
         // console.log(comment);
          let itemElement = document.createElement("li");

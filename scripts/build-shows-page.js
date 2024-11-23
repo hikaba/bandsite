@@ -1,7 +1,7 @@
 import { BandSiteApi } from "./band-site-api.js";
 const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
 
-// {/* <li class="shows__item">
+// /* <li class="shows__item">
 //     <p class="shows__heading shows__heading--bold">DATE</p>
 //     <p class="shows__detail shows__detail--bold">
 //         Mon Sept 09 2024
@@ -59,7 +59,13 @@ const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
   function displayShows (){
     for (let i = 0; i < showsArray.length; i++) {
         let show = showsArray[i];
-        // console.log(show);
+        const timestamp = new Date(show.date);
+        const month = String((timestamp.getMonth()+1)).padStart('2', 0);
+        const day = String(timestamp.getDate()).padStart('2',0);
+        const year = String(timestamp.getFullYear());
+        const date = `${month}/${day}/${year}`;
+        
+        
     
         let itemElement = document.createElement("li");
         itemElement.classList.add("shows__item");
@@ -79,7 +85,7 @@ const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
           "shows__detail",
           "shows__detail--bold"
         );
-        dateElement.innerText = show.date;
+        dateElement.innerText = date;
         itemElement.appendChild(dateElement);
         
         // venue heading and details
@@ -90,7 +96,7 @@ const apiKey ="fb949080-b7ee-4573-9c43-96f008c248a0";
 
         let venueElement = document.createElement("p");
         venueElement.classList.add("shows__detail");
-        venueElement.innerText = show.venue;
+        venueElement.innerText = show.place;
         itemElement.appendChild(venueElement);
        
         // location heading and details
